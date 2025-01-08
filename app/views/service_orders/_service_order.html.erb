@@ -1,17 +1,17 @@
-<div id="<%= dom_id service_order %>">
+<div id="<%= dom_id service_order %>" class="flex ">
   <p class="my-5">
-    <strong class="block font-medium mb-1">Reported issue:</strong>
-    <%= service_order.reported_issue %>
+    <strong class="block font-medium mb-1">Cliente:</strong>
+    <%= service_order.user_id %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Identified issue:</strong>
+    <strong class="block font-medium mb-1">Numero da O.S.:</strong>
+    <%= service_order.service_order_number %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Problema Identificado:</strong>
     <%= service_order.identified_issue %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Obs:</strong>
-    <%= service_order.obs %>
   </p>
 
 </div>

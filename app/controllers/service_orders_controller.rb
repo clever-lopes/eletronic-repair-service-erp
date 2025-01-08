@@ -65,6 +65,6 @@ class ServiceOrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_order_params
-      params.expect(service_order: [ :reported_issue, :identified_issue, :obs ])
+      params.expect(service_order: [ :user_id, :service_order_number, :reported_issue, :identified_issue, :obs ])
     end
 end
