@@ -1,0 +1,2 @@
+class Eletronic < ApplicationRecord
+end

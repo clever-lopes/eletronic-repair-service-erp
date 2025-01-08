@@ -10,24 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_08_190823) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_08_200056) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
-  create_table "boards", force: :cascade do |t|
-    t.string "model"
-    t.string "serial_number"
-    t.integer "quantity"
+  create_table "accessories", force: :cascade do |t|
+    t.string "name"
+    t.string "observation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "board_id"
-    t.integer "service_order_id"
-    t.index ["board_id"], name: "index_boards_on_board_id"
-    t.index ["service_order_id"], name: "index_boards_on_service_order_id"
   end
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "eletronic_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "eletronics", force: :cascade do |t|
+    t.string "serial_number"
+    t.string "model"
+    t.string "quantity"
+    t.string "color"
+    t.integer "type_id"
+    t.integer "accessory_id"
+    t.integer "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

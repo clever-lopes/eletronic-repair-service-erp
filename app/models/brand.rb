@@ -1,3 +1,3 @@
 class Brand < ApplicationRecord
-  has_many :boards
+  has_many :eletronics
 end

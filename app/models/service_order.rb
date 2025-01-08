@@ -1,4 +1,4 @@
 class ServiceOrder < ApplicationRecord
-  has_many :boards
+  has_one :eletronic
   belongs_to :user
 end
