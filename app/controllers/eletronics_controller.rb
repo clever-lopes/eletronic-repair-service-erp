@@ -21,15 +21,31 @@ class EletronicsController < ApplicationController
 
   # POST /eletronics or /eletronics.json
   def create
-    @eletronic = Eletronic.new(eletronic_params)
+    if EletronicType.find(:type_id)
+      @eletronic = Eletronic.new(eletronic_params)
 
-    respond_to do |format|
-      if @eletronic.save
-        format.html { redirect_to @eletronic, notice: "Eletronic was successfully created." }
-        format.json { render :show, status: :created, location: @eletronic }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @eletronic.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @eletronic.save
+          format.html { redirect_to @eletronic, notice: "Eletronic was successfully created." }
+          format.json { render :show, status: :created, location: @eletronic }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @eletronic.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      @type = EletronicType.new(:type_id)
+
+      @eletronic = Eletronic.new(eletronic_params)
+
+      respond_to do |format|
+        if @eletronic.save
+          format.html { redirect_to @eletronic, notice: "Eletronic was successfully created." }
+          format.json { render :show, status: :created, location: @eletronic }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @eletronic.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -65,6 +81,6 @@ class EletronicsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def eletronic_params
-      params.expect(eletronic: [ :serial_number, :model, :quantity, :color, :type_id, :accessory_id ])
+      params.expect(eletronic: [ :serial_number, :model, :quantity, :color, :type_id, :accessory_id, :brand_id ])
     end
 end

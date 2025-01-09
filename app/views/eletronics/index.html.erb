@@ -6,15 +6,15 @@
   <% content_for :title, "Eletronics" %>
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Eletronics</h1>
-    <%= link_to "New eletronic", new_eletronic_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <h1 class="font-bold text-4xl">Equipamentos</h1>
+    <%= link_to "Adicionar", new_eletronic_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
   <div id="eletronics" class="min-w-full">
     <% @eletronics.each do |eletronic| %>
       <%= render eletronic %>
       <p>
-        <%= link_to "Show this eletronic", eletronic, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+        <%= link_to "Mostrar", eletronic, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       </p>
     <% end %>
   </div>

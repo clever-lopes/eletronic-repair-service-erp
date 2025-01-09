@@ -23,6 +23,13 @@
   </head>
 
   <body>
+    <header class="w-11/12">
+      <ul class="flex justify-between">
+        <li><%= link_to "Ordens de Serviço", service_orders_path, class:"" %></li>
+        <li><%= link_to "Equipamentos", eletronics_path, class:"" %></li>
+        <li><%= link_to "Clientes", users_path, class:"" %></li>
+      </ul>
+    </header>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>

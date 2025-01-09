@@ -12,33 +12,45 @@
   <% end %>
 
   <div class="my-5">
-    <%= form.label :serial_number %>
+    <%= form.label :Número_de_série %>
     <%= form.text_field :serial_number, class: "block shadow rounded-md border border-gray-400 outline-none focus:outline-blue-600 px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :model %>
+    <%= form.label :modelo %>
     <%= form.text_field :model, class: "block shadow rounded-md border border-gray-400 outline-none focus:outline-blue-600 px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :quantity %>
+    <%= form.label :quantidade %>
     <%= form.text_field :quantity, class: "block shadow rounded-md border border-gray-400 outline-none focus:outline-blue-600 px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :color %>
+    <%= form.label :cor %>
     <%= form.text_field :color, class: "block shadow rounded-md border border-gray-400 outline-none focus:outline-blue-600 px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :type_id %>
-    <%= form.number_field :type_id, class: "block shadow rounded-md border border-gray-400 outline-none focus:outline-blue-600 px-3 py-2 mt-2 w-full" %>
+  <% if EletronicType.any? %>
+    <%= form.label :tipo_de_eletrônico %>
+    <%= form.select :type_id, EletronicType.order(:name).map { |type| [type.name, type.id] },class: "block shadow rounded-md border border-gray-400 outline-none focus:outline-blue-600 px-3 py-2 mt-2 w-full" %>
+  <% end %>
   </div>
 
   <div class="my-5">
-    <%= form.label :accessory_id %>
-    <%= form.number_field :accessory_id, class: "block shadow rounded-md border border-gray-400 outline-none focus:outline-blue-600 px-3 py-2 mt-2 w-full" %>
+    <%= form.label :tipo_de_eletrônico %>
+    <%= form.text_field :type_id, class: "block shadow rounded-md border border-gray-400 outline-none focus:outline-blue-600 px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :acessório %>
+    <%= form.select :accessory_id, Accessory.order(:name).map { |accessory| [accessory.name, accessory.id] }, class: "block shadow rounded-md border border-gray-400 outline-none focus:outline-blue-600 px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :marca %>
+    <%= form.select :brand_id, Brand.order(:name).map { |brand| [brand.name, brand.id] }, class: "block shadow rounded-md border border-gray-400 outline-none focus:outline-blue-600 px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">
