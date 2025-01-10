@@ -1,4 +1,4 @@
 class ServiceOrder < ApplicationRecord
-  has_one :eletronic, null: false
+  has_one :eletronic
   belongs_to :user
 end
